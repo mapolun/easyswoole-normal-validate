@@ -16,33 +16,56 @@ $ composer require mapolun/easyswoole-normal-validate
 ## Usage 
 ```php
 
-一、控制器类
+使用规则借鉴tp5规则语法，EasySwoole验证调用方法，验证字段规则值时用~ 符号隔开，可拓展func类型标识自定义函数进行验证规则。
+
+一、创建validate规则
+
+namespace App\Validate;
+
+use MaPoLun\Validate;
+
+/**
+ * 登录验证类
+ * Class SignIn
+ * @package App\Validate\User
+ */
+class SignIn extends Validate
+{
+    protected $rule = [
+        'username' => 'required|notEmpty',
+        'password' => 'required|notEmpty|betweenLen:8~11',
+    ];
+
+    protected $message = [
+        'username.required' => "缺少必要参数username",
+        'username.notEmpty' => "username不可为空",
+        'password.required' => "缺少必要参数password",
+        'password.notEmpty' => "password不可为空",
+        'password.betweenLen' => "password不合法"
+    ];
+}
+
+
+二、创建控制器类
 
 namespace App\HttpController;
 
 use EasySwoole\Http\AbstractInterface\Controller;
 use MaPoLun\Validate;
+use App\Validate\SignIn;
 
 class Index extends Base
 {
-    protected $validate;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->validate = new Validate();
-    }
-
     public function index()
     {
         // TODO: Implement index() method.
-        $validate = $this->validate->getExamplie();
+        $validate = (new SignIn())->getExamplie();
         $params = $this->validateCheck($validate);
         var_dump($params); // 这是你客户端请求过来验证好的参数
     }
 }
 
-二、在写个Base类
+三、创建Base类
 
 namespace App\HttpController;
 

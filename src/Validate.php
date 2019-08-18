@@ -1,15 +1,20 @@
 <?php
 /**
- * Created by 柒上网络科技
- * User: 麻破伦意识
- * Date: 2019/8/18
- * Time: 23:36
+ * Create by PhpStorm.
+ * User：麻破伦意识
+ * Date：2019/5/30
+ * Time：11:46
  */
 
 namespace MaPoLun;
 
 use EasySwoole\Validate\Validate as EasyswooleValidate;
 
+/**
+ * 验证类，使用规则借鉴tp5规则语法，EasySwoole验证调用方法，验证字段规则值时用~ 符号隔开，可拓展func类型标识自定义函数进行验证规则。
+ * Class Base
+ * @package App\Validate
+ */
 class Validate
 {
     protected $rule;

@@ -1,4 +1,9 @@
 {
+    "autoload": {
+        "psr-4": {
+            "MaPoLun\\": "src/"
+        }
+    },
     "name": "mapolun/easyswoole-normal-validate",
     "description": "This is a validate using TP5 in conjunction with the easyswoole specification",
     "type": "library",
@@ -9,10 +14,5 @@
         "php": ">=7.2.0"
     },
     "license": "MIT",
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "MaPoLun\\": "src/"
-        }
-    }
+    "minimum-stability": "dev"
 }
