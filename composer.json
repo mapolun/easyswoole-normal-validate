@@ -9,5 +9,10 @@
         "php": ">=7.2.0"
     },
     "license": "MIT",
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "MaPoLun\\": "src/"
+        }
+    }
 }
