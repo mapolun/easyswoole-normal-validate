@@ -1,4 +1,4 @@
-This is a validate using TP5 in conjunction with EasyS specification
+This is a validate using TP5 in conjunction with EasySwoole specification
 
 ## Installation
 The recommended method of installing this library is via [Composer](https://getcomposer.org/).
