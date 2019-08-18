@@ -1,5 +1,8 @@
 This is a validate using TP5 in conjunction with EasyS specification
 
+运行easyswoole的validate结合tp5的验证规则，可自定义func。
+验证的规则使用可以参考easyswoole官方的validate，https://www.easyswoole.com/Cn/Components/validate.html
+
 ## Installation
 The recommended method of installing this library is via [Composer](https://getcomposer.org/).
 
@@ -50,8 +53,6 @@ class SignIn extends Validate
 
 namespace App\HttpController;
 
-use EasySwoole\Http\AbstractInterface\Controller;
-use MaPoLun\Validate;
 use App\Validate\SignIn;
 
 class Index extends Base
@@ -87,7 +88,7 @@ class Base extends Controller
             if ($this->validate($validate)) {
                 return $validate->getVerifiedData();
             } else {
-                throw new Exception($validate->getError()->__toString(),Status::CODE_ERROR);
+                throw new Exception($validate->getError()->__toString(),Status::CODE_ACCEPTED);
             }
         } else {
             throw new Exception("不属于规则合法验证实例",Status::CODE_INTERNAL_SERVER_ERROR);
